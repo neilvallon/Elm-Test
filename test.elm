@@ -1,8 +1,9 @@
+import Window
 import Mouse
 
-main = lift circleEQ circleSize
+main = draw <~ Window.dimensions ~ circleSize
 
-circleEQ x = collage 1000 1000 [filled (rgba 0 0 0 1) (circle (0.5 * x))]
+draw (x, y) cs = collage x y [filled (rgba 0 0 0 1) (circle (0.5 * cs))]
 
 circleSize = smooth 0.9 (fps 25) mouseVector
 
